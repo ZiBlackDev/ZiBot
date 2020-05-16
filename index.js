@@ -3,6 +3,9 @@ const bot = new Discord.Client
 
 const token = process.env.token;
 
+const ping = require('minecraft-server-util')
+
+
 const PREFIX = '!'
 
 bot.on('message', message=>{
@@ -40,8 +43,19 @@ bot.on('message', message=>{
                 .setThumbnail(message.author.displayAvatarURL());
                 message.channel.send(embed);
             break;
+            }
+            switch(args[0]){
+                case 'mc' :
+                    ping('142.44.253.187', 25565, (error, Response)=>{
+                        if(error) throw error;
+          
+                       consele.log(Response)
+                    })
+                    break
+          }
+          
     }
-})
+)
 
 bot.on('ready', () =>{
     console.log('this bot is online!')
